@@ -1,4 +1,4 @@
-# RGB通道混合器 (RGB Channel Mixer)
+# RGB通道混合器 (RGB Crosstalk)
 
 这是一个为DaVinci Resolve创建的DCTL插件，用于精确控制RGB通道之间的混合比例。
 

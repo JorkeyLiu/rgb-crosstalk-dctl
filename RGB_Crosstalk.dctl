@@ -1,4 +1,4 @@
-// RGB Channel Mixer DCTL
+// RGB Crosstalk DCTL
 // 
 // This DCTL plugin allows users to adjust mixing ratios between RGB channels,
 // and automatically ensures the sum of mixing coefficients for each output channel is 1,
