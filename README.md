@@ -2,6 +2,8 @@
 
 A DCTL plugin created for DaVinci Resolve to precisely control the mixing ratios between RGB channels.
 
+![RGB Channel Mixer Interface](images/RGB_Crosstalk.png "RGB Channel Mixer Plugin Interface")
+
 ## Features
 
 - Allows precise adjustment of each input channel's contribution to each output channel
@@ -29,7 +31,7 @@ Setting negative values can create more creative effects and color interactions.
 
 ## Installation
 
-1. Copy the `RGB_Channel_Mixer.dctl` file to DaVinci Resolve's LUT directory:
+1. Copy the `RGB_Crosstalk.dctl` file to DaVinci Resolve's LUT directory:
    - Windows: `C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\LUT`
    - macOS: `/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT`
 
@@ -38,18 +40,17 @@ Setting negative values can create more creative effects and color interactions.
 ## Usage
 
 1. In DaVinci Resolve's Color page, create a new node
-2. Right-click on the node, select "3D LUT" > "RGB_Channel_Mixer_ENG"
+2. Right-click on the node, select "3D LUT" > "RGB_Crosstalk_ENG"
 
 Or:
 
 1. In the Color page, open the OpenFX panel
 2. Find "ResolveFX Color" > "DCTL" effect
 3. Drag the DCTL effect onto a node
-4. In the Inspector panel, select "RGB_Channel_Mixer_ENG" from the DCTL List dropdown
+4. In the Inspector panel, select "RGB_Crosstalk_ENG" from the DCTL List dropdown
 
 ## Use Cases
 
-- Custom color space transformations
 - Creating special color styles and effects
 - Fixing color imbalance issues
 - Creatively adjusting the color mood of footage

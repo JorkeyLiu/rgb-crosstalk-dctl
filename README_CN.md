@@ -2,6 +2,8 @@
 
 这是一个为DaVinci Resolve创建的DCTL插件，用于精确控制RGB通道之间的混合比例。
 
+![RGB通道混合器界面](images/RGB_Crosstalk.png "RGB通道混合器插件界面")
+
 ## 功能特点
 
 - 允许精确调整每个输出通道中各个输入通道的贡献比例
@@ -29,7 +31,7 @@
 
 ## 安装方法
 
-1. 将`RGB_Channel_Mixer.dctl`文件复制到DaVinci Resolve的LUT目录：
+1. 将`RGB_Crosstalk.dctl`文件复制到DaVinci Resolve的LUT目录：
    - Windows: `C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\LUT`
    - macOS: `/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT`
    - Linux: `/opt/resolve/LUT`
@@ -39,18 +41,17 @@
 ## 使用方法
 
 1. 在DaVinci Resolve的Color页面，创建一个新的节点
-2. 右键点击该节点，选择"3D LUT">"RGB_Channel_Mixer"
+2. 右键点击该节点，选择"3D LUT">"RGB_Crosstalk"
 
 或者：
 
 1. 在Color页面，打开OpenFX面板
 2. 找到"ResolveFX Color">"DCTL"效果
 3. 将DCTL效果拖到一个节点上
-4. 在Inspector面板中，从DCTL List下拉列表中选择"RGB_Channel_Mixer"
+4. 在Inspector面板中，从DCTL List下拉列表中选择"RGB_Crosstalk"
 
 ## 应用场景
 
-- 自定义颜色空间转换
 - 创建特殊的颜色风格和色彩效果
 - 修复颜色不平衡问题
 - 创造性地调整影像颜色氛围
