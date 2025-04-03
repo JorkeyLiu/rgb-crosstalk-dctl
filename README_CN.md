@@ -40,11 +40,6 @@
 
 ## 使用方法
 
-1. 在DaVinci Resolve的Color页面，创建一个新的节点
-2. 右键点击该节点，选择"3D LUT">"RGB_Crosstalk"
-
-或者：
-
 1. 在Color页面，打开OpenFX面板
 2. 找到"ResolveFX Color">"DCTL"效果
 3. 将DCTL效果拖到一个节点上
