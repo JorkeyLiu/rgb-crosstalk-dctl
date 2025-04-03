@@ -1,0 +1,46 @@
+// RGB Channel Mixer DCTL
+// 
+// This DCTL plugin allows users to adjust mixing ratios between RGB channels,
+// and automatically ensures the sum of mixing coefficients for each output channel is 1,
+// maintaining overall brightness unchanged.
+//
+
+// Define UI parameters - Red channel mixing ratios
+// Contribution of green channel to red output, default is 0, allows negative values
+DEFINE_UI_PARAMS(greenInRed, Green in Red, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.01)
+// Contribution of blue channel to red output, default is 0, allows negative values
+DEFINE_UI_PARAMS(blueInRed, Blue in Red, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.01)
+
+// Define UI parameters - Green channel mixing ratios
+// Contribution of red channel to green output, default is 0, allows negative values
+DEFINE_UI_PARAMS(redInGreen, Red in Green, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.01)
+// Contribution of blue channel to green output, default is 0, allows negative values
+DEFINE_UI_PARAMS(blueInGreen, Blue in Green, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.01)
+
+// Define UI parameters - Blue channel mixing ratios
+// Contribution of red channel to blue output, default is 0, allows negative values
+DEFINE_UI_PARAMS(redInBlue, Red in Blue, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.01)
+// Contribution of green channel to blue output, default is 0, allows negative values
+DEFINE_UI_PARAMS(greenInBlue, Green in Blue, DCTLUI_SLIDER_FLOAT, 0.0, -1.0, 1.0, 0.01)
+
+__DEVICE__ float3 transform(int p_Width, int p_Height, int p_X, int p_Y, float p_R, float p_G, float p_B)
+{
+    // Create output float3
+    float3 result;
+    
+    // Calculate each channel's self-contribution ratio
+    // Ensure the sum of coefficients for each channel equals 1, implementing automatic adaptation
+    float redInRed = 1.0f - greenInRed - blueInRed;
+    float greenInGreen = 1.0f - redInGreen - blueInGreen;
+    float blueInBlue = 1.0f - redInBlue - greenInBlue;
+    
+    // Since we now support negative parameters, redInRed values may need additional adjustment
+    // Here we maintain the constraint that the sum equals 1, but don't restrict individual coefficients to be positive
+    
+    // Apply RGB mixing matrix
+    result.x = p_R * redInRed + p_G * greenInRed + p_B * blueInRed;       // Red output
+    result.y = p_R * redInGreen + p_G * greenInGreen + p_B * blueInGreen; // Green output
+    result.z = p_R * redInBlue + p_G * greenInBlue + p_B * blueInBlue;    // Blue output
+    
+    return result;
+} 
