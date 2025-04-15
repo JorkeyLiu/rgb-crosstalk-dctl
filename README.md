@@ -6,10 +6,17 @@ A DCTL plugin created for DaVinci Resolve to precisely control the mixing ratios
 
 ## Features
 
-- Allows precise adjustment of each input channel's contribution to each output channel
-- Automatically ensures the sum of mixing coefficients for each output channel equals 1, maintaining overall brightness
-- Provides intuitive slider UI controls with support for negative parameter values
-- Similar to DaVinci Resolve's native RGB mixer, but with more precise control
+### Core Mechanism
+- Maintains a constant total color value (sum of contributions = 1) for each output channel, preserving overall brightness and color balance.
+- Preserves neutral colors during adjustments, simplifying the workflow compared to traditional RGB Mixers.
+
+### Precise Control & Effects
+- Allows precise adjustment of each input channel's contribution to each output channel.
+- Supports negative parameter values for creative effects and color interactions.
+
+### Ease of Use
+- Provides intuitive slider UI controls.
+- Encourages learning through experimentation by observing vectorscope changes, even without deep RGB Mixer theory.
 
 ## Parameter Description
 
